@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Final - Mettajess</title>
+
+ <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('mettajessfondo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #000000;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px;
+            font-size: 45px;
+            font-weight: bold;
+            color: #ff60c6;
+            animation: moverTitulo 3s infinite ease-in-out;
+            text-shadow: 3px 3px 10px rgba(255, 96, 198, 0.4);
+        }
+
+        @keyframes moverTitulo {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+            backng: 25px;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(255, 182, 222, 0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        h2 {
+            color: #ff74d4;
+            text-shadow: 2px 2px 6px rgba(255, 116, 212, 0.4);ground: rgba(255, 255, 255, 0.7);
+            paddi
+        }
+
+        img.moverImg {
+            width: 230px;
+            display: block;
+            margin: auto;
+            animation: flotar 3s infinite ease-in-out alternate;
+            transition: transform 0.4s;
+        }
+
+        img.moverImg:hover {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        @keyframes flotar {
+            from { transform: translateY(-10px); }
+            to { transform: translateY(10px); }
+        }
+
+        video {
+            width: 100%;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 0 15px rgba(255, 170, 215, 0.8);
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 0 12px rgba(255, 164, 221, 0.5);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 0 6px rgba(255, 160, 214, 0.5);
+        }
+
+        input[type="submit"], input[type="reset"] {
+            width: auto;
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #ff9ed8;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 145, 210, 0.7);
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            transform: scale(1.1);
+            background: #ff77cb;
+        }
+
+        .btnMusica {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #ffe37e;
+            color: #4a4a4a;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(255, 235, 120, 0.7);
+        }
+
+        .btnMusica:hover {
+            background: #ffdd55;
+            transform: scale(1.1);
+        }
+
+        a {
+            color: #ff60c6;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<audio id="bgm" src="musica.mp3" autoplay loop muted></audio>
+<script>
+    document.addEventListener("click", function() {
+        const bgm = document.getElementById("bgm");
+        bgm.muted = false;
+        bgm.volume = 0.4;
+    }, { once: true });
+
+    function toggleMusic() {
+        const bgm = document.getElementById("bgm");
+        if (bgm.paused) {
+            bgm.play();
+        } else {
+            bgm.pause();
+        }
+    }
+
+    function enviarEncuesta(e) {
+        e.preventDefault();
+        alert("¡Gracias por participar en la encuesta de la Isla Pollito! 🐤💛");
+    }
+</script>
+
+<header>Página dedicada a Mettajess</header>
+
+<div class="contenedor">
+
+    <button class="btnMusica" onclick="toggleMusic()">Play / Pausa Música</button>
+
+    <h2>¿Quién es Mettajess?</h2>
+    <p>Mettajess es una vtuber de Twitch conocida por su carisma y su vibra pastelosa llena de energía bonita.</p>
+    <p>Su comunidad, la Isla Pollito, es un lugar lleno de amor, humor y amistad.</p>
+    <p>Sus streams mezclan diversión, risas y buenos momentos.</p>
+
+    <img class="moverImg" id="avatar" src="mettajessavatar.png" 
+     alt="Avatar de Mettajess" usemap="#mapaMettajess">
+
+<map name="mapaMettajess">
+   
+    <area shape="rect" coords="0,0,230,250" 
+          href="https://www.twitch.tv/mettajess?lang=es" target="_blank">
+
+   
+    <area shape="rect" coords="0,250,230,460" 
+          href="https://ko-fi.com/mettajesskawaii" target="_blank">
+</map>
+
+
+
+    <h2>Video especial</h2>
+    <video controls src="mettajessvideo.mp4"></video>
+
+    <h2>Formulario de contacto</h2>
+    <form action="mailto:krizz7640@gmail.com" method="post" enctype="text/plain">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" placeholder="Escribe tu nombre">
+
+        <label>Mensaje para Mettajess:</label>
+        <textarea name="mensaje" placeholder="Escribe tu mensaje aquí"></textarea>
+
+        <input type="submit" value="Enviar correo">
+    </form>
+
+    <h2>Encuesta: ¿Qué te gusta más del stream?</h2>
+
+<form action="mailto:krizz7640@gmail.com" method="post" enctype="text/plain">
+    
+    <label>Contenido favorito:</label>
+    <select name="Contenido favorito">
+        <option>Just Chatting</option>
+        <option>Juegos</option>
+        <option>Reacciones</option>
+        <option>CP (Club Penguin)</option>
+        <option>Eventos especiales</option>
+    </select>
+
+    <label>Motivos por los que te quedas (elige una):</label>
+    <select name="Motivo" multiple size="5">
+        <option>Su personalidad</option>
+        <option>La comunidad</option>
+        <option>Su humor</option>
+        <option>Los juegos</option>
+        <option>La estética del stream</option>
+    </select>
+
+    <label>Bebida que tomas para ver el stream:</label>
+    <select name="Bebida">
+        <option>Agua</option>
+        <option>Manzanilla</option>
+        <option>Refresco</option>
+        <option>Jugo</option>
+        <option>Energético</option>
+    </select>
+
+    <input type="submit" value="Enviar encuesta">
+    <input type="reset" value="Borrar respuestas">
+</form>
+
+
+    <h2>Ir al avatar</h2>
+    <a href="#avatar">Volver al avatar 💖</a>
+
+</div>
+
+</body>
+</html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Final - Mettajess</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #ff66b3;
+            animation: mover 3s infinite alternate ease-in-out;
+            text-shadow: 0 0 10px rgba(255, 102, 179, 0.6);
+        }
+
+        @keyframes mover {
+            0% { transform: translateX(-10px); }
+            100% { transform: translateX(10px); }
+        }
+
+        .contenedor {
+            background: white;
+            padding: 20px;
+            width: 80%;
+            margin: auto;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
+            animation: aparecer 1.5s ease;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        label {
+            font-size: 20px;
+            color: #ff80ab;
+        }
+
+        select, textarea {
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #ffd1dc;
+            background: #fffafc;
+            box-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
+            width: 60%;
+            margin-top: 10px;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            background: #ffb3d9;
+            border: none;
+            padding: 12px 25px;
+            margin: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            color: white;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+        }
+
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background: #ff80bf;
+            transform: scale(1.07);
+        }
+
+        .card {
+            background: #fff7fb;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 12px rgba(255, 171, 193, 0.6);
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>✨ Pagina La Isla Pollito de Mettajess uwu ✨</h1>
+
+<div class="contenedor">
+    <h2 style="color:#ff99cc;">Encuesta especial</h2>
+
+<form action="mailto:krizz7640@gmail.com" method="post" enctype="text/plain">
+
+    <label>¿Qué es lo que más te gusta del stream de Mettajess?</label><br>
+    <select name="Lo que mas te gusta" required>
+        <option>Su energía bonita ✨</option>
+        <option>La Isla Pollito 🐤</option>
+        <option>Las risas y el ambiente</option>
+        <option>El chat y la comunidad</option>
+        <option>Sus juegos y dinámicas</option>
+    </select>
+
+    <div class="card">
+        <label>¿Qué mejorarías o qué te gustaría ver en futuros streams?</label><br>
+        <textarea name="Sugerencia" rows="4" placeholder="Escribe tu idea aquí..."></textarea>
+    </div>
+
+    <br>
+    <input type="submit" value="Enviar encuesta">
+    <input type="reset" value="Borrar respuestas">
+
+</form>
+
+</div>
+
+<script>
+function enviarEncuesta(e) {
+    e.preventDefault();
+    alert("¡Gracias por participar! 🐤💛 ¡Tu opinión ayuda a la Isla Pollito!");
+}
+</script>
+
+</body>
+</html>
+	
